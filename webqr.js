@@ -175,7 +175,7 @@ function setwebcam2(options) {
     var n = navigator;
     document.getElementById("outdiv").innerHTML = vidhtml;
     v = document.getElementById("v");
-    v.style.height="450px";
+    v.style.height="400px";
     v.style.width="400px";
     v.style.marginLeft="-70px";
     v.style.marginTop="-190px";
