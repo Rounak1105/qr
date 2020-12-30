@@ -11,8 +11,8 @@ var moz = false;
 var v = null;
 
 var imghtml = '<div id="qrfile"><canvas id="out-canvas" width="320" height="240"></canvas>' +
-    '<div id="imghelp">drag and drop a QRCode here' +
-    '<br>or select a file' +
+    '<div id="imghelp">' +
+    ' Select a file' +
     '<input type="file" onchange="handleFiles(this.files)"/>' +
     '</div>' +
     '</div>';
@@ -175,10 +175,11 @@ function setwebcam2(options) {
     var n = navigator;
     document.getElementById("outdiv").innerHTML = vidhtml;
     v = document.getElementById("v");
-    v.style.height="400px";
+    v.style.height="450px";
     v.style.width="400px";
     v.style.marginLeft="-70px";
     v.style.marginTop="-190px";
+    
 
     if (n.mediaDevices.getUserMedia) {
         n.mediaDevices.getUserMedia({
@@ -215,6 +216,8 @@ function setwebcam2(options) {
 
 function setimg() {
     document.getElementById("result").innerHTML = "";
+    document.getElementById("div1").style.visibility="hidden";
+    document.getElementById("div2").style.visibility="hidden";
     if (stype == 2)
         return;
     document.getElementById("outdiv").innerHTML = imghtml;
