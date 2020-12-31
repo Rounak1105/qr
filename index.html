@@ -1,148 +1,234 @@
-<!doctype html>
-<html lang="en-US" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:addthis="https://www.addthis.com/help/api-spec"  prefix="og: http://ogp.me/ns#" class="no-js">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>How to use Instascan an HTML5 QR scanner</title>
-  <link rel="shortcut icon" href="https://learncodeweb.com/demo/favicon.ico">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6724419004010752",
-    enable_page_level_ads: true
-    });
-  </script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131906273-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-131906273-1');
-  </script>
-</head>
+// QRCODE reader Copyright 2011 Lazar Laszlo
+// http://www.webqr.com
 
-<body>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <div class="bg-light border-bottom shadow-sm sticky-top">
-    <div class="container">
-      <header class="blog-header py-1">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light"> <a class="navbar-brand text-muted p-0 m-0" href="https://learncodeweb.com"><img src='https://learncodeweb.com/wp-content/uploads/2019/01/logo.png' alt='LearnCodeWeb'></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-17" class="active nav-item"><a title="Home" href="https://learncodeweb.com/" class="nav-link">Home</a></li>
-              <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-16" class="nav-item"><a title="Web Development" href="https://learncodeweb.com/learn/web-development/" class="nav-link">Web Development</a></li>
-              <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-558" class="nav-item"><a title="PHP" href="https://learncodeweb.com/learn/php/" class="nav-link">PHP</a></li>
-              <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-14" class="nav-item"><a title="Bootstrap" href="https://learncodeweb.com/learn/bootstrap-framework/" class="nav-link">Bootstrap</a></li>
-              <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-559" class="nav-item"><a title="WordPress" href="https://learncodeweb.com/learn/wordpress/" class="nav-link">WordPress</a></li>
-              <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-15" class="nav-item"><a title="Snippets" href="https://learncodeweb.com/learn/snippets/" class="nav-link">Snippets</a></li>
-            </ul>
-            <form method="get" action="https://learncodeweb.com" class="form-inline my-2 my-lg-0">
-              <div class="input-group input-group-md">
-                <input type="text" class="form-control search-width" name="s" id="search" value="" placeholder="Search..." aria-label="Search">
-                <div class="input-group-append">
-                  <button type="submit" class="btn btn-primary" id="searchBtn"><i class="fa fa-search"></i></button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </nav>
-      </header>
-    </div> <!--/.container-->
-  </div>
-  
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3" style="height:100vh">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- demo left sidebar -->
-        <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-6724419004010752"
-           data-ad-slot="7706376079"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      
-      <div class="col">
-        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-        <h1><a href="https://learncodeweb.com/phonegap/how-to-use-instascan-an-html5-qr-scanner/">How to use Instascan an HTML5 QR scanner</a></h1>
-        <div class="col-sm-12">
-          <video id="preview" class="p-1 border" style="width:100%;"></video>
-        </div>
-        <script type="text/javascript">
-          var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
-          scanner.addListener('scan',function(content){
-            window.open(content);
-            //window.location.href=content;
-          });
-          Instascan.Camera.getCameras().then(function (cameras){
-            if(cameras.length>0){
-              scanner.start(cameras[0]);
-              $('[name="options"]').on('change',function(){
-                if($(this).val()==1){
-                  if(cameras[0]!=""){
-                    scanner.start(cameras[0]);
-                  }else{
-                    alert('No Front camera found!');
-                  }
-                }else if($(this).val()==2){
-                  if(cameras[1]!=""){
-                    scanner.start(cameras[1]);
-                  }else{
-                    alert('No Back camera found!');
-                  }
-                }
-              });
-            }else{
-              console.error('No cameras found.');
-              alert('No cameras found.');
-            }
-          }).catch(function(e){
-            console.error(e);
-            alert(e);
-          });
-        </script>
-        <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
-          <label class="btn btn-primary active">
-          <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
-          </label>
-          <label class="btn btn-secondary">
-          <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
-          </label>
-        </div>
-      </div>
-      
-      
-      <div class="col-sm-3" style="height:100vh">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- demo left sidebar -->
-        <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-6724419004010752"
-           data-ad-slot="7706376079"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
+var gCtx = null;
+var gCanvas = null;
+var c = 0;
+var stype = 0;
+var gUM = false;
+var webkit = false;
+var moz = false;
+var v = null;
+
+var imghtml = '<div id="qrfile"><canvas id="out-canvas" width="320" height="240"></canvas>' +
+    '<div id="imghelp">' +
+    ' Select a file' +
+    '<input type="file" onchange="handleFiles(this.files)"/>' +
+    '</div>' +
+    '</div>';
+
+var vidhtml = '<video id="v" width="320" height="440" autoplay></video>';
+
+function dragenter(e) {
+    e.stopPropagation();
+    e.preventDefault();
+}
+
+function dragover(e) {
+    e.stopPropagation();
+    e.preventDefault();
+}
+
+function drop(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    var dt = e.dataTransfer;
+    var files = dt.files;
+    if (files.length > 0) {
+        handleFiles(files);
+    } else
+    if (dt.getData('URL')) {
+        qrcode.decode(dt.getData('URL'));
+    }
+}
+
+function handleFiles(f) {
+    var o = [];
+
+    for (var i = 0; i < f.length; i++) {
+        var reader = new FileReader();
+        reader.onload = (function(theFile) {
+            return function(e) {
+                gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+
+                qrcode.decode(e.target.result);
+            };
+        })(f[i]);
+        reader.readAsDataURL(f[i]);
+    }
+}
+
+function initCanvas(w, h) {
+    gCanvas = document.getElementById("qr-canvas");
+    gCanvas.style.width = w + "px";
+    gCanvas.style.height = h + "px";
+    gCanvas.width = w;
+    gCanvas.height = h;
+    gCtx = gCanvas.getContext("2d");
+    gCtx.clearRect(0, 0, w, h);
+}
+
+
+function captureToCanvas() {
+    if (stype != 1)
+        return;
+    if (gUM) {
+        try {
+            gCtx.drawImage(v, 0, 0);
+            try {
+                qrcode.decode();
+            } catch (e) {
+                console.log(e);
+                setTimeout(captureToCanvas, 500);
+            };
+        } catch (e) {
+            console.log(e);
+            setTimeout(captureToCanvas, 500);
+        };
+    }
+}
+
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function read(a) {
+    var html = "<br>";
+    if (a.indexOf("http://") === 0 || a.indexOf("https://") === 0)
+        html += "<a target='_blank' href='" + a + "'>" + a + "</a><br>";
+    html += "<b>" + htmlEntities(a) + "</b><br><br>";
+    document.getElementById("result").innerHTML = html;
+}
+
+function isCanvasSupported() {
+    var elem = document.createElement('canvas');
+    return !!(elem.getContext && elem.getContext('2d'));
+}
+
+function success(stream) {
+
+    v.srcObject = stream;
+    v.play();
+
+    gUM = true;
+    setTimeout(captureToCanvas, 500);
+}
+
+function error(error) {
+    gUM = false;
+    return;
+}
+
+function load() {
+    if (isCanvasSupported() && window.File && window.FileReader) {
+        initCanvas(800, 600);
+        qrcode.callback = read;
+        document.getElementById("mainbody").style.display = "inline";
+        setwebcam();
+    } else {
+        document.getElementById("mainbody").style.display = "inline";
+        document.getElementById("mainbody").innerHTML = '<p id="mp1">QR code scanner for HTML5 capable browsers</p><br>' +
+            '<br><p id="mp2">sorry your browser is not supported</p><br><br>' +
+            '<p id="mp1">try <a href="http://www.mozilla.com/firefox"><img src="firefox.png"/></a> or <a href="http://chrome.google.com"><img src="chrome_logo.gif"/></a> or <a href="http://www.opera.com"><img src="Opera-logo.png"/></a></p>';
+    }
+}
+
+function setwebcam() {
+
+    var options = true;
+    if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
+        try {
+            navigator.mediaDevices.enumerateDevices()
+                .then(function(devices) {
+                    devices.forEach(function(device) {
+                        if (device.kind === 'videoinput') {
+                            if (device.label.toLowerCase().search("back") > -1)
+                                options = {
+                                    'deviceId': {
+                                        'exact': device.deviceId
+                                    },
+                                    'facingMode': 'environment'
+                                };
+                        }
+                        console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
+                    });
+                    setwebcam2(options);
+                });
+        } catch (e) {
+            console.log(e);
+        }
+    } else {
+        console.log("no navigator.mediaDevices.enumerateDevices");
+        setwebcam2(options);
+    }
+
+}
+
+function setwebcam2(options) {
+    console.log(options);
+    document.getElementById("result").innerHTML = "- scanning -";
+    if (stype == 1) {
+        setTimeout(captureToCanvas, 500);
+        return;
+    }
+    var n = navigator;
+    document.getElementById("outdiv").innerHTML = vidhtml;
+    v = document.getElementById("v");
+    v.style.height="450px";
+    v.style.width="400px";
+    v.style.marginLeft="-70px";
+    v.style.marginTop="-190px";
     
-    </div>
-  </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-</body>
-</html>
+
+    if (n.mediaDevices.getUserMedia) {
+        n.mediaDevices.getUserMedia({
+            video: options,
+            audio: false
+        }).
+        then(function(stream) {
+            success(stream);
+        }).catch(function(error) {
+            error(error)
+        });
+    } else
+    if (n.getUserMedia) {
+        webkit = true;
+        n.getUserMedia({
+            video: options,
+            audio: false
+        }, success, error);
+    } else
+    if (n.webkitGetUserMedia) {
+        webkit = true;
+        n.webkitGetUserMedia({
+            video: options,
+            audio: false
+        }, success, error);
+    }
+
+    document.getElementById("qrimg").style.opacity = 0.2;
+    document.getElementById("webcamimg").style.opacity = 1.0;
+
+    stype = 1;
+    setTimeout(captureToCanvas, 500);
+}
+
+function setimg() {
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("div1").style.visibility="hidden";
+    document.getElementById("div2").style.visibility="hidden";
+    if (stype == 2)
+        return;
+    document.getElementById("outdiv").innerHTML = imghtml;
+    //document.getElementById("qrimg").src="qrimg.png";
+    //document.getElementById("webcamimg").src="webcam2.png";
+    document.getElementById("qrimg").style.opacity = 1.0;
+    document.getElementById("webcamimg").style.opacity = 0.2;
+    var qrfile = document.getElementById("qrfile");
+    qrfile.addEventListener("dragenter", dragenter, false);
+    qrfile.addEventListener("dragover", dragover, false);
+    qrfile.addEventListener("drop", drop, false);
+    stype = 2;
+}
+
