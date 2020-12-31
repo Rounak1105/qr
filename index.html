@@ -36,19 +36,71 @@
   }
   video{
     margin-top: 0px;
+    position:relative;
   }
+  #div1 {
+   position:absolute;
+   top:9px;
+   left:9px;
+   height:100px;
+   width:100px;
+   background-color :rgba(0,0,0,0,0);
+   border:3px solid green;
+   margin-top: 90px;
+   margin-left: 130px;
+}
+@media screen and (max-width:320px){
+  #div1 {
+   position:absolute;
+   top:9px;
+   left:9px;
+   height:100px;
+   width:100px;
+   background-color :rgba(0,0,0,0,0);
+   border:3px solid green;
+   margin-top: 120px;
+   margin-left: 105px;
+}
+
+
+}
+#div2 {
+  position:relative;
+  top:-1px;
+  left:-1px;
+  height:102px;
+  width:102px;
+  
+  background-color :rgba(0,0,0,0.1);
+  border-radius: 15px;
+}
+@media screen and (min-width:768px){
+  #div1 {
+   position:absolute;
+   top:9px;
+   left:9px;
+   height:100px;
+   width:100px;
+   background-color :rgba(0,0,0,0,0);
+   border:3px solid green;
+   margin-top: 180px;
+   margin-left: 325px;
+}
+
+
 </style>
 <body>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     
-  
       
       <div class="col">
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         <h1><a href="https://learncodeweb.com/phonegap/how-to-use-instascan-an-html5-qr-scanner/">Scan QR scanner</a></h1>
-        <div class="col-sm-12" >
-          <video id="preview" class="p-1 border" style="width:100%;"></video>
-        </div>
+        <div class="col-sm-12" >  
+
+          <video id="preview" class="p-1 border" style="width:100%;"></div><div id="div1" />
+<div id="div2" /></video>
+        </div><br><br><br><br><br><br>
         <script type="text/javascript">
           var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
           scanner.addListener('scan',function(content){
