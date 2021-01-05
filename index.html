@@ -116,6 +116,8 @@ vertical-align: middle;
   width:350px;
   height:600px;
   background:rgba(0,0,0,0.6) ;
+  text-align: center;
+  color: white;
   
   -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 30%, 75% 30%, 75% 60%, 25% 60%, 25% 100%, 100% 100%, 100% 0%);
   clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 30%, 75% 30%, 75% 60%, 25% 60%, 25% 100%, 100% 100%, 100% 0%);
@@ -142,17 +144,19 @@ vertical-align: middle;
  -->
           <video id="preview" class="p-1 border" style="width:340px;height: 600px"></video>
         </div><!-- </div>
-         </div> --><div class="element">
+         </div> --><div class="element"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Scan Shop QR Code
 </div>
         <script type="text/javascript">
           var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
           scanner.addListener('scan',function(content){
+
             window.open(content);
             //window.location.href=content;
+            console.log(content);
           });
           Instascan.Camera.getCameras().then(function (cameras){
             if(cameras.length>0){
-              scanner.start(cameras[0]);
+              scanner.start(cameras[1]);
               $('[name="options"]').on('change',function(){
                 if($(this).val()==1){
                   if(cameras[0]!=""){
