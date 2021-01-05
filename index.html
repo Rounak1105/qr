@@ -31,41 +31,101 @@
 <style type="text/css">
   body{
     overflow: hidden;
-    width: 100%;
+    width: 350px;
     height: 100%;
   }
   video{
     margin-top: 0px;
     
   }
-  #div1 {
-   position:absolute;
+ #div1 {
+   position:relative;
+   margin-top: 150px;
+   margin-left:130px;
    top:9px;
    left:9px;
    height:100px;
    width:100px;
-   background-color :rgba(0,0,0,0,0);
-   border:3px solid green;
-   margin-top: 90px;
-   margin-left: 130px;
+   background-color:rgba(0,0,0,0);
+   border:1px solid green;
+   display: inline-block;
+vertical-align: middle;
 }
 
 #div2 {
-  position:relative;
+  position:absolute;
   top:-1px;
   left:-1px;
   height:102px;
   width:102px;
-  
-  background-color :rgba(0,0,0,0.1);
+  background-color:(0,0,0,0.1);
   border-radius: 15px;
+}
+#preview{
+  text-align: center;
+}
+.test {
+    width: 100px;
+    height: 100px;
+    border: 10px solid transparent;
+    background-image: linear-gradient(0deg, white 0%, white 100%),
+        linear-gradient(0deg, green 0%, green 100%),
+        linear-gradient(0deg, red 0%, red 100%),
+        linear-gradient(0deg, yellow 0%, yellow 100%),
+        linear-gradient(0deg, blue 0%, blue 100%);
+    background-origin: padding-box, border-box, border-box, border-box, border-box;
+    background-repeat: no-repeat;
+    background-size: 100% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+    background-position: top left, top left, top right, bottom left, bottom right;
+    z-index: 1000;
+   
+    
+
+}
+#foreground{
+    position:absolute;
+    height:100%;
+    width:100%;
+    background-color:rgba(0,0,0,0.9);
+    opacity:0.3;
+    pointer-events:none;
+    z-index: 100;
 }
 
 
 
+.videobox, #video{
+        text-align: center;
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+    .videobox .shape-qr{
+        background: rgba(0,0,0,0.5);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right:0;
+        bottom: 0;
+    }
+    .element{
+  position:absolute;
+  top:0;
+  width:350px;
+  height:500px;
+  background:rgba(0,0,0,0.6) ;
+  
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+  clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+  
+}
 
 </style>
-<body>
+<body>            
+<div id="div2" /></div></div>
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     
        <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
@@ -76,14 +136,21 @@
           <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
           </label>
         </div>
-      </div>
+      
       <div class="col">
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         
         <div class="col-sm-12" >  
 
-          <video id="preview" class="p-1 border" style="width:100%;height: 400%"></video>
-        </div>
+<!-- <div class="videobox">
+            <div class="shape-qr"></div>
+            <div class="videobox__inner">
+            
+ -->
+          <video id="preview" class="p-1 border" style="width:340px;height: 500px"></video>
+        </div><!-- </div>
+         </div> --><div class="element">
+</div>
         <script type="text/javascript">
           var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
           scanner.addListener('scan',function(content){
