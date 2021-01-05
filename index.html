@@ -114,11 +114,11 @@ vertical-align: middle;
   position:absolute;
   top:0;
   width:350px;
-  height:500px;
+  height:600px;
   background:rgba(0,0,0,0.6) ;
   
-  -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
-  clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 30%, 75% 30%, 75% 60%, 25% 60%, 25% 100%, 100% 100%, 100% 0%);
+  clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 30%, 75% 30%, 75% 60%, 25% 60%, 25% 100%, 100% 100%, 100% 0%);
   
 }
 
@@ -128,14 +128,7 @@ vertical-align: middle;
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     
-       <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
-          <label class="btn btn-primary active">
-          <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
-          </label>
-          <label class="btn btn-secondary">
-          <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
-          </label>
-        </div>
+       
       
       <div class="col">
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
@@ -147,7 +140,7 @@ vertical-align: middle;
             <div class="videobox__inner">
             
  -->
-          <video id="preview" class="p-1 border" style="width:340px;height: 500px"></video>
+          <video id="preview" class="p-1 border" style="width:340px;height: 600px"></video>
         </div><!-- </div>
          </div> --><div class="element">
 </div>
@@ -185,7 +178,14 @@ vertical-align: middle;
           });
 
         </script>
-       
+       <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
+          <label class="btn btn-primary active">
+          <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
+          </label>
+          <label class="btn btn-secondary">
+          <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
+          </label>
+        </div>
       
       
       <div class="col-sm-3" style="height:100vh">
